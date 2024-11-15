@@ -17,13 +17,15 @@ export const useTasks = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  const addTask = (title: string, priority: Task['priority']) => {
+  const addTask = (title: string, priority: Task['priority'], dueDate: Date, dueTime: string) => {
     const newTask: Task = {
       id: Date.now().toString(),
       title,
       completed: false,
       priority,
       createdAt: new Date(),
+      dueDate,
+      dueTime
     };
     setTasks([...tasks, newTask]);
   };

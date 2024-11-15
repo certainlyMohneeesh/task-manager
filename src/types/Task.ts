@@ -4,5 +4,7 @@ export interface Task {
     completed: boolean;
     priority: 'low' | 'medium' | 'high';
     createdAt: Date;
+    dueDate: Date
+    dueTime: string
   }
   
