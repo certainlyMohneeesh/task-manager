@@ -51,10 +51,15 @@ npm run dev or yarn dev
 - English language interface
 
 ## Screenshots
-- [Task List](screenshots/task-list.png) 
-- [Task Details](screenshots/task-details.png)
-- [Task Calendar](screenshots/task-calendar.png)
-- [Task Settings](screenshots/task-settings.png)
+- ![Home page](public/screenshots/UI%20Task-Manager.png?raw=true "UI Home Page")
+- ![Home page](public/screenshots/Light%20mode%20-%20UI.png?raw=true "UI Lightmode")
+- ![Task List](public/screenshots/Task%20List.png?raw=true "Task List")
+- ![Search bar](public/screenshots/Search%20Bar.png?raw=true "Search Bar")
+- ![Sidebar](public/screenshots/Completed%20tasks%20-%20%20Sidebar.png?raw=true "Completed Tasks")
+- ![Edit Dialog](public/screenshots/Edit-Dialog.png?raw=true "Edit Dialog")
+- ![Task Toast](public/screenshots/Task%20Toaster.png?raw=true "Task Toast")
+
+
 
 ## Tech Stack
 - Next.js 14
