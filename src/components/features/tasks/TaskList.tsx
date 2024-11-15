@@ -7,13 +7,16 @@ import { Card } from '@/components/ui/card'
 import { Task } from '@/types/Task'
 import { Trash2 } from 'lucide-react'
 
+import { EditTaskDialog } from './EditTaskDialog'
+
 interface TaskListProps {
   tasks: Task[]
   onDeleteTask: (id: string) => void
   onToggleTask: (id: string) => void
+  onEditTask: (id: string, title: string, priority: Task['priority']) => void
 }
 
-export function TaskList({ tasks, onDeleteTask, onToggleTask }: TaskListProps) {
+export function TaskList({ tasks, onDeleteTask, onToggleTask, onEditTask }: TaskListProps) {
   const getPriorityColor = (priority: Task['priority']) => {
     const colors = {
       low: 'bg-green-100 text-green-800',
@@ -46,6 +49,8 @@ export function TaskList({ tasks, onDeleteTask, onToggleTask }: TaskListProps) {
                   {task.priority}
                 </span>
               </div>
+            <div className="flex space-x-2">
+              <EditTaskDialog task={task} onEditTask={onEditTask} />
               <Button
                 variant="ghost"
                 size="icon"
@@ -53,6 +58,7 @@ export function TaskList({ tasks, onDeleteTask, onToggleTask }: TaskListProps) {
               >
                 <Trash2 className="h-4 w-4" />
               </Button>
+              </div>
             </div>
           </Card>
         </motion.div>

@@ -38,5 +38,13 @@ export const useTasks = () => {
     ));
   };
 
-  return { tasks, addTask, deleteTask, toggleTask };
+  const editTask = (id: string, title: string, priority: Task['priority']) => {
+    setTasks(tasks.map(task =>
+      task.id === id
+        ? { ...task, title, priority }
+        : task
+    ))
+  };
+
+  return { tasks, addTask, deleteTask, toggleTask, editTask};
 };

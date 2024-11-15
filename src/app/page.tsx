@@ -7,7 +7,7 @@ import { useTasks } from '@/hooks/useTasks'
 import { SearchBar } from "@/components/features/search/SearchBar"
 
 export default function Home() {
-  const { tasks, addTask, deleteTask, toggleTask } = useTasks()
+  const { tasks, addTask, deleteTask, toggleTask, editTask } = useTasks()
   const [searchQuery, setSearchQuery] = useState('')
 
   const filteredTasks = tasks.filter(task =>
@@ -29,6 +29,7 @@ export default function Home() {
         tasks={filteredTasks}
         onDeleteTask={deleteTask}
         onToggleTask={toggleTask}
+        onEditTask={editTask}
       />
     </main>
   )
