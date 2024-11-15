@@ -5,6 +5,7 @@ import { TaskForm } from '@/components/features/tasks/TaskForm'
 import { TaskList } from '@/components/features/tasks/TaskList'
 import { useTasks } from '@/hooks/useTasks'
 import { SearchBar } from "@/components/features/search/SearchBar"
+import { ThemeSwitcher } from "@/components/features/theme/ThemeSwitcher"
 
 export default function Home() {
   const { tasks, addTask, deleteTask, toggleTask, editTask } = useTasks()
@@ -16,7 +17,10 @@ export default function Home() {
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-3xl">
-      <h1 className="text-4xl font-bold mb-8">Task Manager</h1>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-4xl font-bold">Task Manager</h1>
+        <ThemeSwitcher />
+      </div>
       
       <TaskForm onAddTask={addTask} />
 
