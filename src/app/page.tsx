@@ -12,13 +12,19 @@ export default function Home() {
   const { tasks, addTask, deleteTask, toggleTask, editTask } = useTasks()
   const [searchQuery, setSearchQuery] = useState('')
 
+  const priorityOrder = {
+    high: 1,
+    medium: 2,
+    low: 3,
+  }
+
   const completedTasks = tasks.filter(task => task.completed)
   const activeTasks = tasks.filter(task => !task.completed)
   const filteredTasks = tasks
     .filter(task => !task.completed)
     .filter(task => task.title.toLowerCase().includes(searchQuery.toLowerCase()))
+    .sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority])
 
-    
   const handleRedoTask = (id: string) => {
     toggleTask(id)
   }
