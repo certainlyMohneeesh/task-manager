@@ -48,5 +48,13 @@ export const useTasks = () => {
     ))
   };
 
-  return { tasks, addTask, deleteTask, toggleTask, editTask};
+  const updatePriority = (taskId: string, newPriority: Task['priority']) => {
+    setTasks(tasks.map(task =>
+      task.id === taskId
+        ? { ...task, newPriority }
+        : task
+    ))
+  };
+
+  return { tasks, addTask, deleteTask, toggleTask, editTask, updatePriority };
 };

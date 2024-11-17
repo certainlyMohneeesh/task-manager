@@ -56,7 +56,7 @@ export function TaskForm({ onAddTask }: TaskFormProps) {
         className="w-full"
       />
       
-      <div className="flex gap-4">
+      <div className="flex gap-2">
         <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
           <PopoverTrigger asChild>
             <Button variant="outline" className="w-[180px]">

@@ -9,7 +9,7 @@ import { ThemeSwitcher } from "@/components/features/theme/ThemeSwitcher"
 import { Sidebar } from "@/components/layout/Sidebar"
 
 export default function Home() {
-  const { tasks, addTask, deleteTask, toggleTask, editTask } = useTasks()
+  const { tasks, addTask, deleteTask, toggleTask, editTask, updatePriority } = useTasks()
   const [searchQuery, setSearchQuery] = useState('')
 
   const priorityOrder = {
@@ -50,6 +50,7 @@ export default function Home() {
         onDeleteTask={deleteTask}
         onToggleTask={toggleTask}
         onEditTask={editTask}
+        onUpdatePriority={updatePriority}
       />
     </main>
    </div>
