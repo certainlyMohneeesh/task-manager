@@ -14,7 +14,7 @@ interface SidebarProps {
 
 export function Sidebar({ completedTasks, onRedoTask }: SidebarProps) {
   return (
-    <div className="w-64 h-screen bg-muted/30 p-4 fixed left-0 top-0 overflow-y-auto">
+<div className="w-full lg:w-64 h-auto lg:h-screen bg-muted/30 p-4 lg:fixed lg:left-0 lg:top-0 overflow-y-auto">
     <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
       <CheckCircle className="h-5 w-5 text-green-500" />
       Completed Tasks

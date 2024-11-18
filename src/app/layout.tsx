@@ -5,6 +5,7 @@ import { Toaster } from '@/components/features/notification/Toaster'
 import { ThemeProvider } from "@/components/features/theme/theme-provider"
 const inter = Inter({ subsets: ['latin'] })
 
+
 export const metadata: Metadata = {
   title: 'Task Manager',
   description: 'A Task Management Application',

@@ -56,10 +56,10 @@ export function TaskForm({ onAddTask }: TaskFormProps) {
         className="w-full"
       />
       
-      <div className="flex gap-2">
+      <div className="flex flex-col sm:flex-row gap-4">
         <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
           <PopoverTrigger asChild>
-            <Button variant="outline" className="w-[180px]">
+            <Button variant="outline" className="w-full sm:w-[180px]">
               <CalendarIcon className="mr-2 h-4 w-4" />
               {date ? format(date, "PPP") : <span>Pick date</span>}
             </Button>
@@ -79,18 +79,18 @@ export function TaskForm({ onAddTask }: TaskFormProps) {
           </PopoverContent>
         </Popover>
 
-        <div className="flex items-center">
+        <div className="flex items-center w-full sm:w-auto">
           <Clock className="mr-2 h-4 w-4" />
           <Input
             type="time"
             value={time}
             onChange={(e) => setTime(e.target.value)}
-            className="w-[120px]"
+            className="w-full sm:w-[120px]"
           />
         </div>
 
         <Select value={priority} onValueChange={(value: Task['priority']) => setPriority(value)}>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-full sm:w-[180px]">
             <SelectValue placeholder="Select priority" />
           </SelectTrigger>
           <SelectContent>
@@ -100,7 +100,7 @@ export function TaskForm({ onAddTask }: TaskFormProps) {
           </SelectContent>
         </Select>
 
-        <Button type="submit">Add Task</Button>
+        <Button type="submit" className="w-full sm:w-auto">Add Task</Button>
       </div>
     </form>
   )

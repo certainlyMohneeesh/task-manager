@@ -7,6 +7,7 @@ import { useTasks } from '@/hooks/useTasks'
 import { SearchBar } from "@/components/features/search/SearchBar"
 import { ThemeSwitcher } from "@/components/features/theme/ThemeSwitcher"
 import { Sidebar } from "@/components/layout/Sidebar"
+import { FloatingTimer } from '@/components/features/notification/FloatingTimer'
 
 export default function Home() {
   const { tasks, addTask, deleteTask, toggleTask, editTask, updatePriority } = useTasks()
@@ -30,12 +31,12 @@ export default function Home() {
   }
 
   return (
-    <div className="flex">
-      <Sidebar completedTasks={completedTasks}
-      onRedoTask={handleRedoTask} />
-    <main className="container mx-auto px-4 py-8 max-w-3xl">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-4xl font-bold">Task Manager</h1>
+    <>
+    <div className="flex flex-col lg:flex-row min-h-screen">
+      <Sidebar completedTasks={completedTasks} onRedoTask={handleRedoTask} />
+      <main className="w-full lg:ml-64 p-4 lg:p-8">
+        <div className="flex flex-col lg:flex-row justify-between items-center mb-8 gap-4">
+          <h1 className="text-3xl lg:text-4xl font-bold">Task Manager</h1>
         <ThemeSwitcher />
       </div>
       
@@ -50,9 +51,10 @@ export default function Home() {
         onDeleteTask={deleteTask}
         onToggleTask={toggleTask}
         onEditTask={editTask}
-        onUpdatePriority={updatePriority}
       />
     </main>
    </div>
+   <FloatingTimer tasks={tasks} />
+   </>
   )
 }
