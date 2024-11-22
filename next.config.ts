@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/<your-repo-name>',
+  basePath: '/task-manager',
   images: {
     unoptimized: true,
   },
