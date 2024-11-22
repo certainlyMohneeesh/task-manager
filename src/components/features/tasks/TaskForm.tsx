@@ -83,15 +83,15 @@ export function TaskForm({ onAddTask }: TaskFormProps) {
           <PopoverTrigger asChild>
             <Button
               variant="outline"
-              className="w-full justify-start text-left font-normal"
+              className="w-full md:w-[240px] justify-start text-left font-normal"
             >
               <Clock className="mr-2 h-4 w-4" />
               {time || "Select time"}
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-4">
+          <PopoverContent className="w-[240px] p-4 md:w-[320px]">
             <div className="space-y-2">
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-4">
                 <Select
                   value={time.split(':')[0]}
                   onValueChange={(hour) => {
@@ -99,10 +99,10 @@ export function TaskForm({ onAddTask }: TaskFormProps) {
                     setTime(`${hour}:${minute}`)
                   }}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className='w-full'>
                     <SelectValue placeholder="Hour" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className='max-h-[200px] overflow-y-auto'>
                     {Array.from({ length: 24 }, (_, i) => (
                       <SelectItem key={i} value={i.toString().padStart(2, '0')}>
                         {i.toString().padStart(2, '0')}
@@ -117,10 +117,10 @@ export function TaskForm({ onAddTask }: TaskFormProps) {
                     setTime(`${hour}:${minute}`)
                   }}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className='w-full'>
                     <SelectValue placeholder="Minute" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className='max-h-[200px] overflow-y-auto'>
                     {Array.from({ length: 60 }, (_, i) => (
                       <SelectItem key={i} value={i.toString().padStart(2, '0')}>
                         {i.toString().padStart(2, '0')}
