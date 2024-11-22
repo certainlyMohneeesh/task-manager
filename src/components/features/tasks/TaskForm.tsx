@@ -79,15 +79,60 @@ export function TaskForm({ onAddTask }: TaskFormProps) {
           </PopoverContent>
         </Popover>
 
-        <div className="flex items-center w-full sm:w-auto">
-          <Clock className="mr-2 h-4 w-4" />
-          <Input
-            type="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-            className="w-full sm:w-[120px]"
-          />
-        </div>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              className="w-full justify-start text-left font-normal"
+            >
+              <Clock className="mr-2 h-4 w-4" />
+              {time || "Select time"}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-4">
+            <div className="space-y-2">
+              <div className="grid grid-cols-2 gap-2">
+                <Select
+                  value={time.split(':')[0]}
+                  onValueChange={(hour) => {
+                    const [_, minute] = time.split(':')
+                    setTime(`${hour}:${minute}`)
+                  }}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Hour" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Array.from({ length: 24 }, (_, i) => (
+                      <SelectItem key={i} value={i.toString().padStart(2, '0')}>
+                        {i.toString().padStart(2, '0')}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <Select
+                  value={time.split(':')[1]}
+                  onValueChange={(minute) => {
+                    const [hour] = time.split(':')
+                    setTime(`${hour}:${minute}`)
+                  }}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Minute" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Array.from({ length: 60 }, (_, i) => (
+                      <SelectItem key={i} value={i.toString().padStart(2, '0')}>
+                        {i.toString().padStart(2, '0')}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
+
 
         <Select value={priority} onValueChange={(value: Task['priority']) => setPriority(value)}>
           <SelectTrigger className="w-full sm:w-[180px]">
